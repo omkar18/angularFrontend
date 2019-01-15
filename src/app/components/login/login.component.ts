@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
     this.authservice.authenticateUser(user).subscribe(data=>{
         if(data.success){
-          this.authservice.storeUserData(data.token,data.user);
+          this.authservice.storeUserData(data.token,data.user.username);
           alert('you are now login');
           this.router.navigate(['/dashboard']);
 
