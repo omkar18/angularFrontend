@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule,Routes} from '@angular/router';
+import {AuthGuard} from './Guards/auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,12 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+
+import { LayoutModule } from '@angular/cdk/layout';
+import {MatInputModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatCardModule } from '@angular/material';
+
 //importing services
 import{ValidateService} from './services/validate.service';
 import{AuthService} from './services/auth.service';
@@ -22,15 +29,12 @@ import{AuthService} from './services/auth.service';
 
 
 const appRoutes:Routes=[
-{path:'',component:HomeComponent},
+{path:'home',component:HomeComponent,canActivate: [AuthGuard]},
 {path:'register',component:RegisterComponent},
 {path:'login',component:LoginComponent},
 {path:'profile',component:ProfileComponent},
 {path:'dashboard',component:DashboardComponent},
-
-
-
-
+//{path:'authguard',component:AuthGuard},
 ]
 
 @NgModule({
@@ -50,8 +54,17 @@ const appRoutes:Routes=[
     HttpModule,
     RouterModule.forRoot(appRoutes),
     //FlashMessagesModule
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
-  providers: [ValidateService,AuthService],
+  providers: [ValidateService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

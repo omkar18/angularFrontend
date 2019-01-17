@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">MeanApp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,14 +24,43 @@
             <a class="nav-link" [routerLink]="['/profile']">Profile</a>
             </li>
 
-        
-            
-      
-        <li class="nav-item" [routerLinkActive]="['active']" >
+         <li class="nav-item" [routerLinkActive]="['active']" >
           <a class="nav-link" (click)="onLogoutClick()" [routerLink]="['/login']" >Logout</a>
           </li>
       
     </ul>
     
   </div>
-</nav>
+</nav> -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item *ngIf="!isTokenAvailable"  [routerLink]="['/home']">Home</a>
+      <a mat-list-item *ngIf="!isTokenAvailable" [routerLink]="['/register']">Registration</a>
+      <a mat-list-item  *ngIf="!isTokenAvailable" [routerLink]="['/login']">Login</a>
+      <a mat-list-item  *ngIf="isTokenAvailable" [routerLink]="['/dashboard']">Dashboard</a>
+      <a mat-list-item  *ngIf="isTokenAvailable" [routerLink]="['/profile']">Profile</a>
+      <a mat-list-item *ngIf="isTokenAvailable" [routerLink]="['/logout']" (click)="onLogoutClick()">Logout</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>MEAN APP</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

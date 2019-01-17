@@ -1,0 +1,24 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10px;
+  width: 50%;
+  border: 3px solid rgb(74, 196, 245);
+  padding: 10px;
+  box-shadow: 5px 10px rgb(74, 196, 245);
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+  

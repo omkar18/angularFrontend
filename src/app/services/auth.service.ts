@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
+import { Token } from '@angular/compiler';
+//import {tokenNotExpired} from 'angular2-jwt';
 //import { HttpClient,HttpHeaders} from '@angular/common/http';
 
 @Injectable({
@@ -34,6 +36,13 @@ export class AuthService {
     this.username=null;
     localStorage.clear();
   }
+
+isLoggedIn(){
+  if(localStorage.getItem('id_token')){
+    return true;
+  }
+  return false;
+}
 
   registerUser(user){
     let headers=new Headers();
