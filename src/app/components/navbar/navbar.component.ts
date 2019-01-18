@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../services/auth.service';
-import {Router} from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {AuthGuard} from '../../Guards/auth.guard'
+import { AuthGuard } from '../../Guards/auth.guard'
 
 @Component({
   selector: 'app-navbar',
@@ -18,17 +18,17 @@ export class NavbarComponent implements OnInit {
       map(result => result.matches)
     );
 
-  constructor(private authservice:AuthService,
+  constructor(private authservice: AuthService,
     private breakpointObserver: BreakpointObserver,
-    private authGuard:AuthGuard,
-    private router:Router
-    ) { }
+    private authGuard: AuthGuard,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-   
+
   }
 
-  onLogoutClick(){
+  onLogoutClick() {
     this.authservice.logout();
     alert("you are logged out");
     this.router.navigate(['/login']);

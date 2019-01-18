@@ -24,27 +24,26 @@
    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
 </form>  !-->
 <form (submit)="onRegisterSubmit()">
-<div class="register-form-container">
-  
-  <mat-form-field>
-    <input type="text" [(ngModel)]="name" name="name"  matInput placeholder="Enter your Name">
-   </mat-form-field>
+  <div class="register-form-container">
 
-   <mat-form-field>
-    <input type="email" [(ngModel)]="email" name="email" matInput placeholder="Enter your Email">
-   </mat-form-field>
+    <mat-form-field>
+      <input type="text" [(ngModel)]="name" name="name" matInput placeholder="Enter your Name">
+    </mat-form-field>
 
-   <mat-form-field>
-    <input type="text" [(ngModel)]="username" name="username" matInput placeholder="Enter your Username">
-   </mat-form-field>
+    <mat-form-field>
+      <input type="email" [(ngModel)]="email" name="email" matInput placeholder="Enter your Email">
+    </mat-form-field>
 
-   <mat-form-field>
-    <input type="password" [(ngModel)]="password" name="password" matInput placeholder="Enter your Password">
-   </mat-form-field>
-   <div class="register-form-submit-btn">
-    <button mat-raised-button color="primary">Submit</button>
+    <mat-form-field>
+      <input type="text" [(ngModel)]="username" name="username" matInput placeholder="Enter your Username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" [(ngModel)]="password" name="password" matInput placeholder="Enter your Password">
+    </mat-form-field>
+    <div class="register-form-submit-btn">
+      <button mat-raised-button color="primary">Submit</button>
+    </div>
+
   </div>
-
-</div>
 </form>
-
