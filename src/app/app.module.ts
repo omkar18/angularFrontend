@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {RouterModule,Routes} from '@angular/router';
-import {AuthGuard} from './Guards/auth.guard';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Guards/auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,25 +16,25 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 
 import { LayoutModule } from '@angular/cdk/layout';
-import {MatInputModule} from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatCardModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
 //importing services
-import{ValidateService} from './services/validate.service';
-import{AuthService} from './services/auth.service';
+import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
 
 //importing flash message for displaying error and success
 //import {FlashMessagesModule} from 'angular2-flash-messages/module';
 
 
-const appRoutes:Routes=[
-{path:'home',component:HomeComponent},
-{path:'register',component:RegisterComponent},
-{path:'login',component:LoginComponent},
-{path:'profile',component:ProfileComponent},
-{path:'dashboard',component:DashboardComponent},
-{path:'authguard',component:AuthGuard},
+const appRoutes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'authguard', component: AuthGuard },
 ]
 
 @NgModule({
@@ -64,7 +64,7 @@ const appRoutes:Routes=[
     MatInputModule,
     BrowserAnimationsModule
   ],
-  providers: [ValidateService,AuthService,AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

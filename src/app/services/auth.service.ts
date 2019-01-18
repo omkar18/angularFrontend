@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http,Headers} from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Token } from '@angular/compiler';
 //import {tokenNotExpired} from 'angular2-jwt';
@@ -9,65 +9,65 @@ import { Token } from '@angular/compiler';
   providedIn: 'root'
 })
 export class AuthService {
-  authToken:any;
+  authToken: any;
   username: any;
-  user:any;
+  user: any;
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) { }
 
-  
-  storeUserData(token,username){
-    localStorage.setItem('id_token',token);
+
+  storeUserData(token, username) {
+    localStorage.setItem('id_token', token);
     localStorage.setItem('id_username', username);
-    this.authToken=token;
+    this.authToken = token;
     this.username = username;
   }
 
-  loadToken(){
-    const token=localStorage.getItem('id_token');
+  loadToken() {
+    const token = localStorage.getItem('id_token');
     const username = localStorage.getItem('id_username');
-    this.authToken=token;
+    this.authToken = token;
     this.username = username;
   }
 
 
-  logout(){
-    this.authToken=null;
-    this.username=null;
+  logout() {
+    this.authToken = null;
+    this.username = null;
     localStorage.clear();
   }
 
-isLoggedIn(){
-  if(localStorage.getItem('id_token')){
-    return true;
+  isLoggedIn() {
+    if (localStorage.getItem('id_token')) {
+      return true;
+    }
+    return false;
   }
-  return false;
-}
 
-  registerUser(user){
-    let headers=new Headers();
-    headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/users/register',user,{headers:headers})
-    .pipe(map((response: any) => response.json()));
-    }
-  
-    authenticateUser(user) {
-      let headers = new Headers();
-      headers.append('Content-Type','application/json');
-      return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+  registerUser(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
       .pipe(map((response: any) => response.json()));
-    }
-  
-  
-getProfile(){
-      let headers = new Headers();
-      this.loadToken();
-      headers.append('authorization',this.authToken);
-      headers.append('Content-Type','application/json');
-      headers.append('username', this.username );
-      return this.http.get('http://localhost:3000/users/profile',  {headers: headers})
+  }
+
+  authenticateUser(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers })
       .pipe(map((response: any) => response.json()));
-    }
+  }
+
+
+  getProfile() {
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    headers.append('username', this.username);
+    return this.http.get('http://localhost:3000/users/profile', { headers: headers })
+      .pipe(map((response: any) => response.json()));
+  }
 
 }
 

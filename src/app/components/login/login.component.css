@@ -1,8 +1,9 @@
 .login-container {
     display: flex; 
-    flex-direction: column;
+    flex-direction: column;    /* flex-direction : column means elements display in column, default is row **/
     max-width: 400px;
-    margin: auto;
+    margin: auto;   /* margin:auto means it will take automatically left and right margin
+    if we set first parameter 0 means top and bottom margin will both 0 **/
     margin-top: 10px;
     box-shadow: 5px 10px rgb(74, 196, 245);
     width: 50%;
@@ -10,6 +11,7 @@
     padding: 10px;
 }
   
+/* * means select all elements '>' it will select all parents  **/
 .login-container > * {
     width: 100%;
   }
@@ -17,6 +19,6 @@
   .login-form-btn-login button, .login-form-btn-login a {
   margin-right: 8px;
   display: flex;
-    flex-direction: column;
-    margin: auto;
+  flex-direction: column;
+  margin: auto;
 }
