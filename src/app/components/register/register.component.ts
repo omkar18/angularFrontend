@@ -31,18 +31,20 @@ export class RegisterComponent implements OnInit {
       password:this.password
     }
 
-    //require Fields
+    //require Fields foor registration
     if(!this.validateService.validateRegister(user)){
       //this.flashMessage.show('please fill all fields',{cssClass:'alert-danger',timeout:3000});
      // return false;
-     alert('please fill all fields');
+     alert('Fill all fields');
     }
 
-    if(!this.validateService.validateEmail(user.email)){
+
+    //require fields for login 
+  else if(!this.validateService.validateEmail(user.email)){
       
       //this.flashMessage.show('please enter valid email',{cssClass:'alert-danger',timeout:3000});
       //return false;
-      alert('please enter valid email');
+      alert('Enter valid email');
     }
     
     //register user
@@ -58,10 +60,5 @@ export class RegisterComponent implements OnInit {
     });
 
 }
-
- 
-
-   
-
 
 }

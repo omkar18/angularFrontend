@@ -1,21 +1,20 @@
-.example-container {
-    display: flex;
+.login-container {
+    display: flex; 
     flex-direction: column;
     max-width: 400px;
     margin: auto;
     margin-top: 10px;
     box-shadow: 5px 10px rgb(74, 196, 245);
-  width: 50%;
-  border: 3px solid rgb(74, 196, 245);
-  padding: 10px;
-  }
+    width: 50%;
+    border: 3px solid rgb(74, 196, 245);
+    padding: 10px;
+}
   
-  .example-container > * {
+.login-container > * {
     width: 100%;
   }
 
-  .example-button-row button,
-.example-button-row a {
+  .login-form-btn-login button, .login-form-btn-login a {
   margin-right: 8px;
   display: flex;
     flex-direction: column;

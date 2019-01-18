@@ -59,7 +59,7 @@ isLoggedIn(){
     }
   
   
-    getProfile(){
+getProfile(){
       let headers = new Headers();
       this.loadToken();
       headers.append('authorization',this.authToken);

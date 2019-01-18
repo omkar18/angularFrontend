@@ -1,0 +1,55 @@
+.container{
+    display: flex;
+    border: 2px solid black;
+    align-items: stretch;
+
+    
+    /*Display elements in center
+    justify-content: center;**/
+
+    /*Set space between elements **/
+    justify-content: space-between;
+
+    /*display element at the start of page
+    justify-content: flex-start; **/
+
+    /*display element at the end of page
+    justify-content:flex-end; **/
+
+    /*this property set space at start and end
+    justify-content: space-around;**/
+
+    /*set space same between elements (also at start and end)**/
+}
+
+.login{
+    background-color: red;
+    margin-left: auto;
+}
+
+.home{
+    background-color:green;
+    margin-left: auto;
+}
+
+.search{
+    background-color: blue;
+    margin-left: auto;
+
+    /*this item will take extra space 
+    flex: 1;**/
+}
+
+
+/**It streches the item to fill the entire container **/ 
+.container > div{
+    flex: 1;
+} 
+/**
+.container >.search{
+    flex:1;
+}
+
+.container >.login{
+    flex:1;
+}**/

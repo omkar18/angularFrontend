@@ -1,4 +1,4 @@
-.example-container {
+.register-form-container {
     display: flex;
     flex-direction: column;
     max-width: 400px;
@@ -10,12 +10,12 @@
   box-shadow: 5px 10px rgb(74, 196, 245);
   }
   
-  .example-container > * {
+  .register-form-container > * {
     width: 100%;
   }
 
-  .example-button-row button,
-.example-button-row a {
+  .register-form-submit-btn button,
+.register-form-submit-btn a {
   margin-right: 8px;
   display: flex;
     flex-direction: column;

@@ -39,12 +39,12 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item *ngIf="!isTokenAvailable"  [routerLink]="['/home']">Home</a>
-      <a mat-list-item *ngIf="!isTokenAvailable" [routerLink]="['/register']">Registration</a>
-      <a mat-list-item  *ngIf="!isTokenAvailable" [routerLink]="['/login']">Login</a>
-      <a mat-list-item  *ngIf="isTokenAvailable" [routerLink]="['/dashboard']">Dashboard</a>
-      <a mat-list-item  *ngIf="isTokenAvailable" [routerLink]="['/profile']">Profile</a>
-      <a mat-list-item *ngIf="isTokenAvailable" [routerLink]="['/logout']" (click)="onLogoutClick()">Logout</a>
+      <a mat-list-item   *ngIf="!authservice.isLoggedIn()" [routerLink]="['/home']">Home</a>
+      <a mat-list-item *ngIf="!authservice.isLoggedIn()" [routerLink]="['/register']">Registration</a>
+      <a mat-list-item *ngIf="!authservice.isLoggedIn()" [routerLink]="['/login']">Login</a>
+      <a mat-list-item *ngIf="authservice.isLoggedIn()"  [routerLink]="['/dashboard']">Dashboard</a>
+      <a mat-list-item  *ngIf="authservice.isLoggedIn()" [routerLink]="['/profile']">Profile</a>
+      <a mat-list-item *ngIf="authservice.isLoggedIn()"  [routerLink]="['/logout']" (click)="onLogoutClick()">Logout</a>
 
     </mat-nav-list>
   </mat-sidenav>

@@ -29,12 +29,12 @@ import{AuthService} from './services/auth.service';
 
 
 const appRoutes:Routes=[
-{path:'home',component:HomeComponent,canActivate: [AuthGuard]},
+{path:'home',component:HomeComponent},
 {path:'register',component:RegisterComponent},
 {path:'login',component:LoginComponent},
 {path:'profile',component:ProfileComponent},
 {path:'dashboard',component:DashboardComponent},
-//{path:'authguard',component:AuthGuard},
+{path:'authguard',component:AuthGuard},
 ]
 
 @NgModule({

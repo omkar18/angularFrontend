@@ -15,7 +15,7 @@
 </form>
 -->
 <form (submit)="onLoginSubmit()">
-<div class="example-container">
+<div class="login-container">
  
     <mat-form-field>
        <input type="text" [(ngModel)]="username" name="username" matInput placeholder="Enter your Username">
@@ -24,8 +24,8 @@
       <mat-form-field>
        <input type="password" [(ngModel)]="password" name="password" matInput placeholder="Enter your Password">
       </mat-form-field>
-      <div class="example-button-row">
-       <button mat-raised-button color="primary">Submit</button>
+      <div class="login-form-btn-login">
+       <button mat-raised-button color="primary">Login</button>
      </div>
    
    </div>

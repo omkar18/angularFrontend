@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {AuthGuard} from '../../Guards/auth.guard'
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,6 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isTokenAvailable: Boolean;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -20,15 +20,12 @@ export class NavbarComponent implements OnInit {
 
   constructor(private authservice:AuthService,
     private breakpointObserver: BreakpointObserver,
+    private authGuard:AuthGuard,
     private router:Router
     ) { }
 
   ngOnInit() {
-    if(localStorage.getItem('id_token')){
-this.isTokenAvailable = true;
-    }else{
-      this.isTokenAvailable = false;
-    }
+   
   }
 
   onLogoutClick(){
